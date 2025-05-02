@@ -1,0 +1,115 @@
+# Default values for teslamate-abrp.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  # https://hub.docker.com/r/fetzu/teslamate-abrp/tags
+  repository: tfetzu/teslamate-abrp
+  pullPolicy: Always
+  tag: "3.3.0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+env: {}
+  #- name: MQTT_SERVER
+  #  value: "mosquitto"
+  #- name: USER_TOKEN
+  #  value: "your-abrp-user-token"
+  #- name: CAR_NUMBER
+  #  value: "1"
+  #- name: CAR_MODEL
+  #  value: "tesla:m3:20:bt37:heatpump"
+  #- name: MQTT_USERNAME
+  #  value: "username"
+  #- name: MQTT_PASSWORD
+  #  value: "password"
+  #- name: MQTT_PORT
+  #  value: "1883"
+  #- name: MQTT_TLS
+  #  value: "True"
+  #- name: STATUS_TOPIC
+  #  value: "teslamate-abrp"
+  #- name: SKIP_LOCATION
+  #  value: "True"
+  #- name: TM2ABRP_DEBUG
+  #  value: "True"
+
+# A secret containing the environment variables to be added to the container
+envFromSecret: 
+  enabled: false
+  name: teslamate-abrp
+  envs:
+    #MQTT_SERVER:
+    #USER_TOKEN:
+    #CAR_NUMBER
+
+
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 101
+  runAsGroup: 101
+  fsGroup: 101
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
