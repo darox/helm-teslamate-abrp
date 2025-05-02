@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "teslamate-api.name" -}}
+{{- define "teslamate-abrp.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "teslamate-api.fullname" -}}
+{{- define "teslamate-abrp.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "teslamate-api.chart" -}}
+{{- define "teslamate-abrp.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "teslamate-api.labels" -}}
-helm.sh/chart: {{ include "teslamate-api.chart" . }}
-{{ include "teslamate-api.selectorLabels" . }}
+{{- define "teslamate-abrp.labels" -}}
+helm.sh/chart: {{ include "teslamate-abrp.chart" . }}
+{{ include "teslamate-abrp.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "teslamate-api.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "teslamate-api.name" . }}
+{{- define "teslamate-abrp.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "teslamate-abrp.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "teslamate-api.serviceAccountName" -}}
+{{- define "teslamate-abrp.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "teslamate-api.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "teslamate-abrp.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

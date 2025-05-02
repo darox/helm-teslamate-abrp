@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "teslamate-api.fullname" . }}
+  name: {{ include "teslamate-abrp.fullname" . }}
   labels:
-    {{- include "teslamate-api.labels" . | nindent 4 }}
+    {{- include "teslamate-abrp.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "teslamate-api.selectorLabels" . | nindent 6 }}
+      {{- include "teslamate-abrp.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -16,7 +16,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "teslamate-api.labels" . | nindent 8 }}
+        {{- include "teslamate-abrp.labels" . | nindent 8 }}
 	{{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -25,7 +25,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "teslamate-api.serviceAccountName" . }}
+      serviceAccountName: {{ include "teslamate-abrp.serviceAccountName" . }}
       automountServiceAccountToken: {{ .Values.serviceAccount.automount }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
