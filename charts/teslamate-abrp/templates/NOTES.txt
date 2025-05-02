@@ -1,6 +1,6 @@
 # NOTES:
 
-Congratulations! You have successfully deployed the teslamate-api Helm chart.
+Congratulations! You have successfully deployed the teslamate-abrp Helm chart.
 
-Enjoy using teslamate-api!
+Enjoy using teslamate-abrp!
 

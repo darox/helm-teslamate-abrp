@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   # https://hub.docker.com/r/fetzu/teslamate-abrp/tags
-  repository: tfetzu/teslamate-abrp
+  repository: fetzu/teslamate-abrp
   pullPolicy: Always
   tag: "3.3.0"
 
