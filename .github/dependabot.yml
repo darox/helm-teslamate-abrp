@@ -1,6 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: "docker"
-    directory: "charts/mqtt-abrp"
+    directory: "charts/teslamate-abrp"
     schedule:
       interval: "weekly"
