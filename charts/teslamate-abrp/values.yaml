@@ -65,9 +65,8 @@ podLabels: {}
 
 podSecurityContext:
   runAsNonRoot: true
-  runAsUser: 101
-  runAsGroup: 101
-  fsGroup: 101
+  runAsUser: 1000
+  runAsGroup: 1000
 
 securityContext:
   privileged: false
