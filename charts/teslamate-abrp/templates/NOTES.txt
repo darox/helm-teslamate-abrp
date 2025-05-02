@@ -1,0 +1,6 @@
+# NOTES:
+
+Congratulations! You have successfully deployed the teslamate-api Helm chart.
+
+Enjoy using teslamate-api!
+
