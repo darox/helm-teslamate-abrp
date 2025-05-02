@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  teslamate-abrp:
+  - apiVersion: v2
+    appVersion: 3.3.0
+    created: "2025-05-02T13:51:58.77730818Z"
+    description: A Helm chart for deploying teslamate-abrp on Kubernetes
+    digest: 81ee57b31fd0bb68a4013ad936dac3333a9a9f120f951da3f12b88b10ffe9c7b
+    name: teslamate-abrp
+    type: application
+    urls:
+    - https://github.com/darox/helm-teslamate-abrp/releases/download/teslamate-abrp-1.0.0/teslamate-abrp-1.0.0.tgz
+    version: 1.0.0
+generated: "2025-05-02T13:51:58.777316967Z"
